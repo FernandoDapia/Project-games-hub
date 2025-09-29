@@ -6,14 +6,8 @@
   box-sizing: border-box;
 }
 
-/* html,
+html,
 body {
-  height: 100vh;
-  width: 100%;
-background-image: url(https://res.cloudinary.com/dy45x7mjl/image/upload/v1758713160/Proyecto%205%20-%20games%20hub/freepik__a-dark-violet-background-with-intricate-patterns-o__61876_ce2xuw.png);
- background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  overflow: auto;
-} */
+  height: 100%;
+  overflow: hidden; 
+}
