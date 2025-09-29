@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   overflow: auto;
-  gap: 200px;
+  gap: 150px;
 }
 .divTitulo {
   display: flex;
