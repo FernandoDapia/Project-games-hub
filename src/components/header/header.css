@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jersey+25&family=Nosifer&display=swap");
 
-header {
+/* header {
   display: flex;
   margin: 30px auto;
   width: 80%;
   max-width: 700px;
   height: 125px;
   align-items: center;
-}
+} */
 
-.divTitulo {
+/* .divTitulo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,4 +60,4 @@ header {
     text-align: center;
     font-size: 50px;
   }
-}
+} */

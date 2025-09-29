@@ -2,6 +2,13 @@ import "./menuJuegos.css";
 
 const menuJuegos = (divApp) => {
   const divMenuJuegos = document.createElement("div");
+  const divTitulo = document.createElement("div");
+  divTitulo.className = "divTitulo";
+  const titulo = document.createElement("h1");
+  titulo.className = "titulo-h1";
+  titulo.textContent = "PROYECTO 5 GAMES HUB";
+  divTitulo.append(titulo);
+  divMenuJuegos.append(divTitulo);
   const divBotonesJuegos = document.createElement("div");
   divBotonesJuegos.className = "botones-juegos";
   const buttonPpt = document.createElement("button");
