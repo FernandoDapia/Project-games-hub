@@ -195,6 +195,7 @@
   border: none;
   outline: none;
   background-color: rgba(255, 255, 255, 0.772);
+  font-size: 16px;
 }
 .ahorcado-input-letra:focus {
   background-color: rgb(255, 255, 255);
