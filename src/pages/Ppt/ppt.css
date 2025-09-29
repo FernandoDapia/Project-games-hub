@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jersey+25&family=Nosifer&display=swap");
+
+.divPantallaJuego {
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+  left: 0;
+  bottom: -100vh;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #eac266 0%, #a24b4b 100%);
+  z-index: 1000;
+  transition: bottom 0.5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.divPantallaJuego.mostrar {
+  bottom: 0;
+}
+
+.h2-ppt {
+  margin: 20px auto;
+  padding: 0px 25px;
+  width: 95%;
+  justify-items: center;
+  text-align: center;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 55px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #4834d4, 9px 9px 0px #ff9ff3,
+    12px 12px 0px #54a0ff, 0 0 30px rgba(255, 107, 107, 0.5);
+  transform: perspective(500px) rotateX(15deg);
+  animation: arcadeGlow 3s ease-in-out infinite alternate;
+}
+
+.ppt-marcador {
+  display: flex;
+  width: 300px;
+  margin: 30px auto;
+  justify-items: center;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 35px;
+  text-shadow: 0px 4px 1px rgba(164, 83, 222, 0.48);
+}
+
+.pElegir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  height: 50px;
+  margin: 20px auto;
+  justify-content: center;
+  text-align: center;
+  font-size: 35px;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-shadow: 0px 4px 1px rgba(255, 255, 255, 0.48);
+}
+
+.botonesDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  width: 570px;
+  margin: 20px auto;
+  min-height: 250px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  gap: 40px;
+}
+
+.empateResultado {
+  display: flex;
+  width: 350px;
+  height: 100px;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-align: center;
+  color: #dfdfdf;
+}
+.perdisteResultado {
+  display: flex;
+  width: 350px;
+  height: 100px;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-align: center;
+  color: #f50202;
+}
+
+.ppt-resultado {
+  display: flex;
+  width: 350px;
+  height: 100px;
+  margin: 20px auto;
+}
+.gasteResultado {
+  display: flex;
+  width: 350px;
+  height: 100px;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-align: center;
+  color: #17fb58;
+}
+
+.menuBotonesVolRes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 100px;
+  margin: 0px auto;
+  gap: 40px;
+}
+
+.boton-ppt-reset-volver {
+  display: flex;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
+  width: 150px;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  background-color: #6452d9;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.1s ease;
+  background: radial-gradient(circle at 30% 30%, #6ba4ff, #5283ee, #4547c4);
+  box-shadow: 0 8px 0 rgb(120, 85, 170), 0 12px 20px rgba(0, 0, 0, 0.5),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.ppt-btn-opcion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+  font-size: 100px;
+  width: 150px;
+  border: none;
+}
+
+.boton-ppt-reset-volver:hover {
+  background: linear-gradient(150deg, #65b37e, #65b37e, #65b37e);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 #008866, 0 15px 25px rgba(0, 0, 0, 0.6),
+    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+}
+
+.boton-ppt-reset-volver:active {
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #008866, 0 3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.ppt-btn-opcion:hover {
+  transform: translateY(-4px);
+  font-size: 100px;
+}
+
+.ppt-btn-opcion:active {
+  transform: translateY(6px);
+}
+
+@keyframes arcadeGlow {
+  0% {
+    text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #4834d4, 9px 9px 0px #ff9ff3,
+      12px 12px 0px #54a0ff, 0 0 30px rgba(255, 107, 107, 0.5);
+  }
+  100% {
+    text-shadow: 3px 3px 0px #54a0ff, 6px 6px 0px #ff6b6b, 9px 9px 0px #4834d4,
+      12px 12px 0px #ff9ff3, 0 0 40px rgba(84, 160, 255, 0.7);
+  }
+}
+
+@media (min-width: 0px) and (max-width: 565px) {
+  .ppt-btn-opcion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    max-width: 100px;
+    height: 80px;
+  }
+  .botonesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 360px;
+    height: 100px;
+    margin: 20px auto;
+    min-height: 150px;
+    font-size: 20px;
+    border-radius: 15px;
+    gap: 15px;
+  }
+  .h2-ppt {
+    margin: 20px auto;
+    margin-top: 40px;
+    padding: 0px 0px;
+    width: 95%;
+    font-size: 40px;
+  }
+  .pElegir {
+    font-size: 25px;
+    height: 100px;
+    width: 300px;
+  }
+  .empateResultado {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    margin: 20px auto;
+    font-size: 25px;
+  }
+  .perdisteResultado {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    margin: 20px auto;
+    font-size: 25px;
+  }
+  .gasteResultado {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    margin: 20px auto;
+    font-size: 25px;
+  }
+
+  .ppt-resultado {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    margin: 20px auto;
+    font-size: 25px;
+  }
+
+  .menuBotonesVolRes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin: 0px auto;
+    gap: 20px;
+  }
+  .boton-ppt-reset-volver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+}
