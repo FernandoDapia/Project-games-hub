@@ -12,8 +12,9 @@
   background: linear-gradient(135deg, #eac266 0%, #a24b4b 100%);
   z-index: 1000;
   transition: bottom 0.5s;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
+  
 }
 
 .divPantallaJuego.mostrar {
