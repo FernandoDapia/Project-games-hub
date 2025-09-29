@@ -192,12 +192,12 @@
     inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .ppt-btn-opcion:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   font-size: 100px;
 }
 
 .ppt-btn-opcion:active {
-  transform: translateY(6px);
+  transform: translateY(3px);
 }
 
 @keyframes arcadeGlow {
@@ -212,6 +212,7 @@
 }
 
 @media (min-width: 0px) and (max-width: 565px) {
+
   .ppt-btn-opcion {
     display: flex;
     flex-wrap: wrap;
@@ -219,22 +220,20 @@
     align-items: center;
     font-size: 80px;
     max-width: 100px;
-    height: 80px;
   }
   .botonesDiv {
     display: flex;
     flex-wrap: wrap;
     max-width: 360px;
-    height: 100px;
+    min-height: 40px;
     margin: 20px auto;
-    min-height: 150px;
     font-size: 20px;
     border-radius: 15px;
     gap: 15px;
   }
   .h2-ppt {
     margin: 20px auto;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 0px 0px;
     width: 95%;
     font-size: 40px;
