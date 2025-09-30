@@ -277,6 +277,26 @@ export const initAhorcado = (divApp) => {
   inputLetra.disabled = true;
   divAhorcado.append(inputLetra);
 
+  const buttonEnter = document.createElement("button");
+  buttonEnter.textContent = "Enter";
+  buttonEnter.className = "ahorcado-btn-enter";
+  buttonEnter.disabled = true;
+
+  const validarLetra = () => {
+    const letra = inputLetra.value.toUpperCase();
+    inputLetra.value = "";
+    if (!letra.match(/[A-ZÑ]/) || letra.leght !== 1) return;
+    if (letrasAdivinadas.includes(letra) || letrasErroneas.includes(letra))
+      return;
+
+    if (palabraSecreta.includes(letra)) {
+      letrasAdivinadas.push(letra);
+    } else {
+      letrasErroneas.push(letra);
+      intentosRestantes--;
+    }
+  };
+
   const resultadoDiv = document.createElement("div");
   resultadoDiv.className = "ahorcado-resultado";
   divAhorcado.append(resultadoDiv);
@@ -411,6 +431,12 @@ export const initAhorcado = (divApp) => {
         palabrasAcertadas,
       })
     );
+  });
+
+  buttonEnter.addEventListener("click", () => {
+    if (!inputLetra.disabled) {
+      manejarEntradaLetra();
+    }
   });
 
   localStorage.setItem(
