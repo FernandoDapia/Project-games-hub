@@ -275,27 +275,6 @@ export const initAhorcado = (divApp) => {
   inputLetra.className = "ahorcado-input-letra";
   inputLetra.placeholder = "Letra";
   inputLetra.disabled = true;
-  divAhorcado.append(inputLetra);
-
-  const buttonEnter = document.createElement("button");
-  buttonEnter.textContent = "Enter";
-  buttonEnter.className = "ahorcado-btn-enter";
-  buttonEnter.disabled = true;
-
-  const validarLetra = () => {
-    const letra = inputLetra.value.toUpperCase();
-    inputLetra.value = "";
-    if (!letra.match(/[A-ZÑ]/) || letra.leght !== 1) return;
-    if (letrasAdivinadas.includes(letra) || letrasErroneas.includes(letra))
-      return;
-
-    if (palabraSecreta.includes(letra)) {
-      letrasAdivinadas.push(letra);
-    } else {
-      letrasErroneas.push(letra);
-      intentosRestantes--;
-    }
-  };
 
   const resultadoDiv = document.createElement("div");
   resultadoDiv.className = "ahorcado-resultado";
@@ -347,8 +326,9 @@ export const initAhorcado = (divApp) => {
     resetDraw();
   });
 
+
   inputLetra.addEventListener("keyup", (e) => {
-    if (e.key === "Enter" && !inputLetra.disabled) {
+    if (e.key === "Enter" && !inputLetra.disabled ) {
       const letra = inputLetra.value.toUpperCase();
       inputLetra.value = "";
       if (!letra.match(/[A-ZÑ]/) || letra.length !== 1) return;
@@ -432,24 +412,8 @@ export const initAhorcado = (divApp) => {
       })
     );
   });
-
-  buttonEnter.addEventListener("click", () => {
-    if (!inputLetra.disabled) {
-      manejarEntradaLetra();
-    }
-  });
-
-  localStorage.setItem(
-    "partidaAhorcado",
-    JSON.stringify({
-      palabraSecreta,
-      pistaActual,
-      letrasAdivinadas,
-      letrasErroneas,
-      intentosRestantes,
-      palabrasAcertadas,
-    })
-  );
+ 
+  divAhorcado.append(inputLetra);
   divButtons.append(btnEmpezar);
   divButtons.append(btnSiguiente);
   divButtons.append(buttonVolver);
