@@ -16,3 +16,11 @@ background-color: rgb(123, 32, 157);
 .divPantallaTres.mostrar {
   bottom: 0;
 }
+
+.div-titulo-tres {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+  width: 95%;
+}
