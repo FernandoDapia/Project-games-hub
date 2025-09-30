@@ -17,7 +17,10 @@ const menuJuegos = (divApp) => {
   const buttonAhoracado = document.createElement("button");
   buttonAhoracado.className = "button-retro";
   buttonAhoracado.textContent = "EL AHORCADO";
-  const buttonJuego3 = document.createElement("button");
+  const buttonTresEnRaya = document.createElement("button");
+  buttonTresEnRaya.className = "button-retro"
+  buttonTresEnRaya.textContent = "TRES EN RAYA"
+
   buttonPpt.addEventListener("click", () => {
     const divPpt = document.querySelector(".divPantallaJuego");
     divPpt.classList.add("mostrar");
@@ -26,6 +29,13 @@ const menuJuegos = (divApp) => {
     const divAhorcado = document.querySelector(".divPantallaAhorcado");
     divAhorcado.classList.add("mostrar");
   });
+
+  buttonTresEnRaya.addEventListener("click", () => {
+    const divTresEnRaya = document.querySelector(".divPantallaTres")
+    divTresEnRaya.classList.add("mostrar")
+  })
+
+
   const divControlerMusic = document.createElement("div");
   divControlerMusic.className = "div-controler-music";
 
@@ -65,7 +75,7 @@ const menuJuegos = (divApp) => {
   });
   buttonSoundPlay.append(imgSound);
 
-  divBotonesJuegos.append(buttonPpt, buttonAhoracado);
+  divBotonesJuegos.append(buttonPpt, buttonAhoracado, buttonTresEnRaya);
   divBotonesJuegos.append(buttonSoundPlay);
   divBotonesJuegos.append(slideVolume);
   divMenuJuegos.className = "divMenuJuegos";
