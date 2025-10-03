@@ -291,26 +291,4 @@
     width: 150px;
     height: 45px;
   }
-
-  /* .draw-ahorcado{
-margin: 0px auto;
-transform: scale(0.6);
-  }
-  .techo {
-  position: absolute;
-  width: 100px;
-  height: 8px;
-  left: 60px;
-  top: -56px;
-  
-} 
-.cuerda {
-  top: -90px;
-}
-.cabeza {
-  top:-60px
-}
-.cuerpo {
-  top: -20px;
-}  */
 }

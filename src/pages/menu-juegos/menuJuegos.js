@@ -14,9 +14,9 @@ const menuJuegos = (divApp) => {
   const buttonPpt = document.createElement("button");
   buttonPpt.className = "button-retro";
   buttonPpt.textContent = "PIEDRA, PAPEL O TIJERA";
-  const buttonAhoracado = document.createElement("button");
-  buttonAhoracado.className = "button-retro";
-  buttonAhoracado.textContent = "EL AHORCADO";
+  const buttonAhorcado = document.createElement("button");
+  buttonAhorcado.className = "button-retro";
+  buttonAhorcado.textContent = "EL AHORCADO";
   const buttonTresEnRaya = document.createElement("button");
   buttonTresEnRaya.className = "button-retro"
   buttonTresEnRaya.textContent = "TRES EN RAYA"
@@ -25,7 +25,7 @@ const menuJuegos = (divApp) => {
     const divPpt = document.querySelector(".divPantallaJuego");
     divPpt.classList.add("mostrar");
   });
-  buttonAhoracado.addEventListener("click", () => {
+  buttonAhorcado.addEventListener("click", () => {
     const divAhorcado = document.querySelector(".divPantallaAhorcado");
     divAhorcado.classList.add("mostrar");
   });
@@ -75,7 +75,7 @@ const menuJuegos = (divApp) => {
   });
   buttonSoundPlay.append(imgSound);
 
-  divBotonesJuegos.append(buttonPpt, buttonAhoracado, buttonTresEnRaya);
+  divBotonesJuegos.append(buttonPpt, buttonAhorcado, buttonTresEnRaya);
   divBotonesJuegos.append(buttonSoundPlay);
   divBotonesJuegos.append(slideVolume);
   divMenuJuegos.className = "divMenuJuegos";

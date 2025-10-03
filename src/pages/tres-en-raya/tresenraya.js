@@ -42,8 +42,8 @@ export const initTresEnRaya = (divApp) => {
       const buttonCelda = document.createElement("button");
       buttonCelda.className = "celda-tres";
       buttonCelda.textContent = celda;
-      if (celda === "X") buttonCelda.classList.add("x")
-      if (celda === "O") buttonCelda.classList.add("o")
+      if (celda === "X") buttonCelda.classList.add("x");
+      if (celda === "O") buttonCelda.classList.add("o");
       buttonCelda.onclick = () => realizarJugada(index);
       buttonCelda.disabled = celda !== "" || verificarGanador();
       tableroDiv.appendChild(buttonCelda);
@@ -175,7 +175,13 @@ export const initTresEnRaya = (divApp) => {
   });
 
   divTitulo.append(titulo, selectMode);
-  divPantallaTres.append(divTitulo, tableroDiv, infoTurno, btnReiniciar, btnVolver);
+  divPantallaTres.append(
+    divTitulo,
+    tableroDiv,
+    infoTurno,
+    btnReiniciar,
+    btnVolver
+  );
   divApp.append(divPantallaTres);
 
   // Inicializar juego

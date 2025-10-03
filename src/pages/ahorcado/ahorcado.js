@@ -8,31 +8,31 @@ let intentosRestantes = 10;
 let palabrasAcertadas = 0;
 
 const palabras = [
-  { palabra: "HARRY POTTER", pista: "El niño mago más famoso de Hogwarts" },
+  { palabra: "HARRYPOTTER", pista: "El niño mago más famoso de Hogwarts" },
   { palabra: "FROZEN", pista: "Película de Disney donde cantan 'Let it go'" },
   {
-    palabra: "BREAKING BAD",
+    palabra: "BREAKINGBAD",
     pista: "Serie del profesor que cocina metanfetamina",
   },
-  { palabra: "THE SIMPSONS", pista: "Familia amarilla con Homer y Bart" },
-  { palabra: "IRON MAN", pista: "Superhéroe millonario con armadura de acero" },
+  { palabra: "THESIMPSONS", pista: "Familia amarilla con Homer y Bart" },
+  { palabra: "IRONMAN", pista: "Superhéroe millonario con armadura de acero" },
   { palabra: "SPIDERMAN", pista: "Héroe que lanza telarañas" },
-  { palabra: "EL REY LEON", pista: "Película de Disney con Simba y Mufasa" },
-  { palabra: "TOY STORY", pista: "Woody y Buzz son los protagonistas" },
+  { palabra: "ELREYLEON", pista: "Película de Disney con Simba y Mufasa" },
+  { palabra: "TOYSTORY", pista: "Woody y Buzz son los protagonistas" },
   { palabra: "TITANIC", pista: "Película del barco que se hundió" },
   { palabra: "AVENGERS", pista: "Grupo de superhéroes de Marvel" },
-  { palabra: "STRANGER THINGS", pista: "Serie con niños y el Mundo del Revés" },
-  { palabra: "GAME OF THRONES", pista: "Serie con dragones y tronos" },
-  { palabra: "MICHAEL JACKSON", pista: "El Rey del Pop" },
+  { palabra: "STRANGERTHINGS", pista: "Serie con niños y el Mundo del Revés" },
+  { palabra: "GAMEOFTHRONES", pista: "Serie con dragones y tronos" },
+  { palabra: "MICHAELJACKSON", pista: "El Rey del Pop" },
   { palabra: "BEYONCE", pista: "Cantante famosa por 'Single Ladies'" },
   { palabra: "SHAKIRA", pista: "Cantante de Colombia, sus caderas no mienten" },
-  { palabra: "BRAD PITT", pista: "Actor de Hollywood, ex de Angelina Jolie" },
-  { palabra: "ANGELINA JOLIE", pista: "Actriz famosa por 'Maléfica'" },
-  { palabra: "LEONARDO DICAPRIO", pista: "Ganó un Óscar por 'El Renacido'" },
-  { palabra: "SELENA GOMEZ", pista: "Cantante y actriz de Disney" },
-  { palabra: "MILEY CYRUS", pista: "Famosa por 'Hannah Montana'" },
+  { palabra: "BRADPITT", pista: "Actor de Hollywood, ex de Angelina Jolie" },
+  { palabra: "ANGELINAJOLIE", pista: "Actriz famosa por 'Maléfica'" },
+  { palabra: "LEONARDODICAPRIO", pista: "Ganó un Óscar por 'El Renacido'" },
+  { palabra: "SELENAGOMEZ", pista: "Cantante y actriz de Disney" },
+  { palabra: "MILEYCYRUS", pista: "Famosa por 'Hannah Montana'" },
   {
-    palabra: "HIGH SCHOOL MUSICAL",
+    palabra: "HIGHSCHOOLMUSICAL",
     pista: "Película de Disney con Troy y Gabriella",
   },
   { palabra: "ALADDIN", pista: "Película con una lámpara mágica" },
@@ -41,28 +41,28 @@ const palabras = [
   { palabra: "COCO", pista: "Película de Disney sobre el Día de Muertos" },
   { palabra: "BLACKPINK", pista: "Grupo de K-Pop femenino muy famoso" },
   { palabra: "BTS", pista: "Grupo de K-Pop masculino conocido mundialmente" },
-  { palabra: "JUSTIN BIEBER", pista: "Cantante de 'Baby'" },
-  { palabra: "TAYLOR SWIFT", pista: "Cantante famosa por 'Shake It Off'" },
+  { palabra: "JUSTINBIEBER", pista: "Cantante de 'Baby'" },
+  { palabra: "TAYLORSWIFT", pista: "Cantante famosa por 'Shake It Off'" },
   { palabra: "ADELE", pista: "Cantante de 'Hello'" },
   { palabra: "RIHANNA", pista: "Cantante de 'Umbrella'" },
   { palabra: "EMINEM", pista: "Rapero de Detroit, conocido como Slim Shady" },
   {
-    palabra: "DWAYNE JOHNSON",
+    palabra: "DWAYNEJOHNSON",
     pista: "Actor y ex luchador conocido como 'La Roca'",
   },
   {
-    palabra: "JENNIFER LOPEZ",
+    palabra: "JENNIFERLOPEZ",
     pista: "Cantante y actriz, también conocida como JLo",
   },
   { palabra: "MADONNA", pista: "Reina del pop en los 80 y 90" },
   { palabra: "ELSA", pista: "Princesa de Disney con poderes de hielo" },
-  { palabra: "MICKEY MOUSE", pista: "El ratón más famoso de Disney" },
+  { palabra: "MICKEYMOUSE", pista: "El ratón más famoso de Disney" },
   { palabra: "CENICIENTA", pista: "Princesa que perdió un zapato de cristal" },
   {
     palabra: "MULAN",
     pista: "Princesa guerrera que se hace pasar por soldado",
   },
-  { palabra: "LA CASA DE PAPEL", pista: "Serie española con máscaras de Dalí" },
+  { palabra: "LACASADEPAPEL", pista: "Serie española con máscaras de Dalí" },
 ];
 
 let palabrasRestantes = [...palabras];
@@ -291,10 +291,6 @@ export const initAhorcado = (divApp) => {
   buttonVolver.className = "boton-ahorcado-volver";
   buttonVolver.textContent = "Volver";
 
-  const audioWestern = new Audio(
-    "https://res.cloudinary.com/dy45x7mjl/video/upload/v1758711738/Proyecto%205%20-%20games%20hub/The_House_of_The_Rising_Sun_-_The_White_Buffalo_-_VID11ROCHA_box3od.mp3"
-  );
-
   const btnEmpezar = document.createElement("button");
   btnEmpezar.textContent = "Empezar";
   btnEmpezar.className = "ahorcado-btn-empezar";
@@ -308,7 +304,6 @@ export const initAhorcado = (divApp) => {
       pistaDiv
     );
     resetDraw();
-    // audioWestern.play()
   });
 
   const btnSiguiente = document.createElement("button");
@@ -326,9 +321,8 @@ export const initAhorcado = (divApp) => {
     resetDraw();
   });
 
-
   inputLetra.addEventListener("keyup", (e) => {
-    if (e.key === "Enter" && !inputLetra.disabled ) {
+    if (e.key === "Enter" && !inputLetra.disabled) {
       const letra = inputLetra.value.toUpperCase();
       inputLetra.value = "";
       if (!letra.match(/[A-ZÑ]/) || letra.length !== 1) return;
@@ -393,7 +387,7 @@ export const initAhorcado = (divApp) => {
         inputLetra.disabled = true;
         btnSiguiente.disabled = false;
         palabrasAcertadas++;
-        palabrasAdivinadasDiv.textContent = `Palabras acertadas: ${palabrasAcertadas} de 10.`;
+        palabrasAdivinadasDiv.textContent = `Palabras acertadas: ${palabrasAcertadas} de 40.`;
       } else if (intentosRestantes === 0) {
         resultadoDiv.textContent = `¡Perdiste! La palabra era: ${palabraSecreta}`;
         inputLetra.disabled = true;
@@ -412,7 +406,7 @@ export const initAhorcado = (divApp) => {
       })
     );
   });
- 
+
   divAhorcado.append(inputLetra);
   divButtons.append(btnEmpezar);
   divButtons.append(btnSiguiente);
