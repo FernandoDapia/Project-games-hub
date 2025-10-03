@@ -41,9 +41,9 @@
   color: rgb(0, 255, 179);
   text-shadow: 0px 4px 8px rgba(123, 121, 123, 0.623);
 }
-.modo-select {
+.select-mode {
   margin-top: 10px;
-  padding: 8px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 5px;
 }
