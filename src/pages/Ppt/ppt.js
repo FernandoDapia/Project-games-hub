@@ -1,15 +1,15 @@
 import "./ppt.css";
+import { obtenerDatosJuego, guardarDatosJuego, limpiarDatosJuego } from "../../utils/storage.js";
 
 let usuarioScore = 0;
 let cpuScore = 0;
 
 
 export const initPpt = (divApp) => {
-  const datosGuardadosPpt = localStorage.getItem("partidaPpt");
+  const datosGuardadosPpt = obtenerDatosJuego("ppt");
   if (datosGuardadosPpt) {
-    const datos = JSON.parse(datosGuardadosPpt);
-    usuarioScore = datos.usuarioScore || 0;
-    cpuScore = datos.cpuScore || 0;
+    usuarioScore = datosGuardadosPpt.usuarioScore || 0;
+    cpuScore = datosGuardadosPpt.cpuScore || 0;
   }
   const divPpt = document.createElement("div");
   divPpt.className = "divPantallaJuego";
@@ -33,7 +33,7 @@ export const initPpt = (divApp) => {
     cpuScore = 0;
     resultadoDiv.textContent = "";
     marcadorDiv.textContent = `Tú: ${usuarioScore} | CPU: ${cpuScore}`;
-    localStorage.removeItem("partidaPpt");
+    limpiarDatosJuego("ppt");
   });
 
   const opcionesPpt = ["Piedra", "Papel", "Tijera"];
@@ -93,10 +93,7 @@ export const initPpt = (divApp) => {
     }
     resultadoDiv.textContent = resultado;
     marcadorDiv.textContent = `Tú: ${usuarioScore} | CPU: ${cpuScore}`;
-    localStorage.setItem(
-      "partidaPpt",
-      JSON.stringify({ usuarioScore, cpuScore })
-    );
+    guardarDatosJuego("ppt", { usuarioScore, cpuScore });
   };
   divPpt.append(marcadorDiv);
   divPpt.append(pElegir);

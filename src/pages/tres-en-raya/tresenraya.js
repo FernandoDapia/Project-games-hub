@@ -1,9 +1,11 @@
 import "./tresenraya.css";
+import { obtenerDatosJuego, guardarDatosJuego, limpiarDatosJuego } from "../../utils/storage.js";
 
 export const initTresEnRaya = (divApp) => {
-  let tablero = Array(9).fill("");
-  let turnoActual = "X";
-  let modoJuego = "cpu-facil";
+  const datosGuardados = obtenerDatosJuego("tresEnRaya");
+  let tablero = datosGuardados?.tablero || Array(9).fill("");
+  let turnoActual = datosGuardados?.turnoActual || "X";
+  let modoJuego = datosGuardados?.modoJuego || "cpu-facil";
 
   const divPantallaTres = document.createElement("div");
   divPantallaTres.className = "divPantallaTres";
@@ -21,6 +23,7 @@ export const initTresEnRaya = (divApp) => {
     <option value="cpu-dificil">PLAYER VS CPU - Difícil</option>
     <option value="2jugadores">2 PLAYERS</option>
   `;
+  selectMode.value = modoJuego;
 
   const tableroDiv = document.createElement("div");
   tableroDiv.className = "tablero-tres";
@@ -65,9 +68,11 @@ export const initTresEnRaya = (divApp) => {
     if (tablero[index] !== "" || verificarGanador()) return;
 
     tablero[index] = turnoActual;
+    guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
 
     if (!verificarGanador()) {
       turnoActual = turnoActual === "X" ? "O" : "X";
+      guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
       mostrarTablero();
 
       if (modoJuego.startsWith("cpu-") && turnoActual === "O") {
@@ -77,6 +82,7 @@ export const initTresEnRaya = (divApp) => {
 
           tablero[cpuIndex] = turnoActual;
           turnoActual = "X";
+          guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
           mostrarTablero();
         }, 500);
       }
@@ -119,8 +125,43 @@ export const initTresEnRaya = (divApp) => {
   };
 
   const jugadaCPUDificil = () => {
-    const mejorJugada = calcularMejorJugada(tablero, "O");
-    return mejorJugada.index;
+    const jugadaBloqueo = buscarJugadaGanadora("X");
+    if (jugadaBloqueo !== null) {
+      return jugadaBloqueo;
+    }
+    const esquinas = [0, 2, 4, 6, 8].filter((index) => tablero[index] === "");
+    if (esquinas.length > 0) {
+      return esquinas[Math.floor(Math.random() * esquinas.length)];
+    }
+  };
+
+  const buscarJugadaGanadora = (jugador) => {
+    const lineasGanadoras = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (const linea of lineasGanadoras) {
+      const [a, b, c] = linea;
+      const valores = [tablero[a], tablero[b], tablero[c]];
+      const cantidadJugador = valores.filter((v) => v === jugador).length;
+      const cantidadVacias = valores.filter((v) => v === "").length;
+
+      // Si hay 2 fichas del jugador y 1 vacía, es una amenaza
+      if (cantidadJugador === 2 && cantidadVacias === 1) {
+        if (tablero[a] === "") return a;
+        if (tablero[b] === "") return b;
+        if (tablero[c] === "") return c;
+      }
+    }
+
+    return null;
   };
   const calcularMejorJugada = (tableroPrueba, jugador, nivel = 0) => {
     const celdasVacias = tableroPrueba
@@ -159,11 +200,13 @@ export const initTresEnRaya = (divApp) => {
   const reiniciarJuego = () => {
     tablero = Array(9).fill("");
     turnoActual = "X";
+    guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
     mostrarTablero();
   };
 
   selectMode.addEventListener("change", () => {
     modoJuego = selectMode.value;
+    guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
     reiniciarJuego();
   });
 

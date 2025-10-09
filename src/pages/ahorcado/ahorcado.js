@@ -1,4 +1,5 @@
 import "./ahorcado.css";
+import { obtenerDatosJuego, guardarDatosJuego, limpiarDatosJuego } from "../../utils/storage.js";
 
 let palabraSecreta = "";
 let pistaActual = "";
@@ -108,17 +109,14 @@ const reiniciarJuego = (
   letrasErrDiv.textContent = "Letras incorrectas: ";
   intentosDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
   pistaDiv.textContent = `Pista: ${pistaActual}`;
-  localStorage.setItem(
-    "partidaAhorcado",
-    JSON.stringify({
-      palabraSecreta,
-      pistaActual,
-      letrasAdivinadas,
-      letrasErroneas,
-      intentosRestantes,
-      palabrasAcertadas,
-    })
-  );
+  guardarDatosJuego("ahorcado", {
+    palabraSecreta,
+    pistaActual,
+    letrasAdivinadas,
+    letrasErroneas,
+    intentosRestantes,
+    palabrasAcertadas,
+  });
 };
 
 const iniciarJuego = (
@@ -153,17 +151,14 @@ const iniciarJuego = (
   pistaActual = seleccion.pista;
   progresoDiv.textContent = mostrarProgreso();
   pistaDiv.innerHTML = `Pista: <br> ${pistaActual}`;
-  localStorage.setItem(
-    "partidaAhorcado",
-    JSON.stringify({
-      palabraSecreta,
-      pistaActual,
-      letrasAdivinadas,
-      letrasErroneas,
-      intentosRestantes,
-      palabrasAcertadas,
-    })
-  );
+  guardarDatosJuego("ahorcado", {
+    palabraSecreta,
+    pistaActual,
+    letrasAdivinadas,
+    letrasErroneas,
+    intentosRestantes,
+    palabrasAcertadas,
+  });
 };
 
 function mostrarProgreso() {
@@ -180,16 +175,15 @@ function mostrarProgreso() {
 }
 
 export const initAhorcado = (divApp) => {
-  const datosGuardadosAhorcado = localStorage.getItem("partidaAhorcado");
+  const datosGuardadosAhorcado = obtenerDatosJuego("ahorcado");
   let partidaGuardada = false;
   if (datosGuardadosAhorcado) {
-    const datos = JSON.parse(datosGuardadosAhorcado);
-    palabraSecreta = datos.palabraSecreta || "";
-    pistaActual = datos.pistaActual || "";
-    letrasAdivinadas = datos.letrasAdivinadas || [];
-    letrasErroneas = datos.letrasErroneas || [];
-    intentosRestantes = datos.intentosRestantes || 10;
-    palabrasAcertadas = datos.palabrasAcertadas || 0;
+    palabraSecreta = datosGuardadosAhorcado.palabraSecreta || "";
+    pistaActual = datosGuardadosAhorcado.pistaActual || "";
+    letrasAdivinadas = datosGuardadosAhorcado.letrasAdivinadas || [];
+    letrasErroneas = datosGuardadosAhorcado.letrasErroneas || [];
+    intentosRestantes = datosGuardadosAhorcado.intentosRestantes || 10;
+    palabrasAcertadas = datosGuardadosAhorcado.palabrasAcertadas || 0;
     partidaGuardada = true;
   }
   const divAhorcado = document.createElement("div");
@@ -394,17 +388,14 @@ export const initAhorcado = (divApp) => {
         btnSiguiente.disabled = false;
       }
     }
-    localStorage.setItem(
-      "partidaAhorcado",
-      JSON.stringify({
-        palabraSecreta,
-        pistaActual,
-        letrasAdivinadas,
-        letrasErroneas,
-        intentosRestantes,
-        palabrasAcertadas,
-      })
-    );
+    guardarDatosJuego("ahorcado", {
+      palabraSecreta,
+      pistaActual,
+      letrasAdivinadas,
+      letrasErroneas,
+      intentosRestantes,
+      palabrasAcertadas,
+    });
   });
 
   divAhorcado.append(inputLetra);
