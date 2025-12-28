@@ -1,5 +1,9 @@
 import "./tresenraya.css";
-import { obtenerDatosJuego, guardarDatosJuego, limpiarDatosJuego } from "../../utils/storage.js";
+import {
+  obtenerDatosJuego,
+  guardarDatosJuego,
+  limpiarDatosJuego,
+} from "../../utils/storage.js";
 
 export const initTresEnRaya = (divApp) => {
   const datosGuardados = obtenerDatosJuego("tresEnRaya");
@@ -82,7 +86,11 @@ export const initTresEnRaya = (divApp) => {
 
           tablero[cpuIndex] = turnoActual;
           turnoActual = "X";
-          guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
+          guardarDatosJuego("tresEnRaya", {
+            tablero,
+            turnoActual,
+            modoJuego,
+          });
           mostrarTablero();
         }, 500);
       }
@@ -125,14 +133,31 @@ export const initTresEnRaya = (divApp) => {
   };
 
   const jugadaCPUDificil = () => {
+    const jugadaGanadora = buscarJugadaGanadora("O");
+    if (jugadaGanadora !== null) {
+      return jugadaGanadora;
+    }
+
     const jugadaBloqueo = buscarJugadaGanadora("X");
     if (jugadaBloqueo !== null) {
       return jugadaBloqueo;
     }
+
+    
     const esquinas = [0, 2, 4, 6, 8].filter((index) => tablero[index] === "");
     if (esquinas.length > 0) {
       return esquinas[Math.floor(Math.random() * esquinas.length)];
     }
+
+  
+    if (tablero[4] === "") {
+      return 4;
+    }
+
+    const celdasVacias = tablero
+      .map((celda, index) => (celda === "" ? index : null))
+      .filter((index) => index !== null);
+    return celdasVacias[Math.floor(Math.random() * celdasVacias.length)];
   };
 
   const buscarJugadaGanadora = (jugador) => {
@@ -153,7 +178,6 @@ export const initTresEnRaya = (divApp) => {
       const cantidadJugador = valores.filter((v) => v === jugador).length;
       const cantidadVacias = valores.filter((v) => v === "").length;
 
-      // Si hay 2 fichas del jugador y 1 vacía, es una amenaza
       if (cantidadJugador === 2 && cantidadVacias === 1) {
         if (tablero[a] === "") return a;
         if (tablero[b] === "") return b;
@@ -163,6 +187,7 @@ export const initTresEnRaya = (divApp) => {
 
     return null;
   };
+
   const calcularMejorJugada = (tableroPrueba, jugador, nivel = 0) => {
     const celdasVacias = tableroPrueba
       .map((celda, index) => (celda === "" ? index : null))
@@ -227,6 +252,5 @@ export const initTresEnRaya = (divApp) => {
   );
   divApp.append(divPantallaTres);
 
-  // Inicializar juego
   mostrarTablero();
 };
