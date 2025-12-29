@@ -39,16 +39,6 @@ export const ejecutarTurnoCPU = (
     guardarDatosJuego,
     mostrarTablero
 ) => {
-    const esquinas = [0, 2, 6, 8];
-    const esquinasOcupadas = esquinas.every((index) => tablero[index] !== "");
-
-    if (esquinasOcupadas) {
-        const turnoActual = "X";
-        guardarDatosJuego("tresEnRaya", { tablero, turnoActual, modoJuego });
-        mostrarTablero();
-        return "X";
-    }
-
     const cpuIndex =
         modoJuego === "cpu-facil"
             ? jugadaCPUFacil(tablero)
